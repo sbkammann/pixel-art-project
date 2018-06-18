@@ -5,6 +5,7 @@
 
 const pixelCanvas = document.querySelector('#pixelCanvas');
 const submit = document.querySelector('button');
+const color = document.querySelector('#colorPicker');
 
 // selects the submit button
 // const inputs = document.getElementsByTagName('input');
@@ -16,7 +17,7 @@ const submit = document.querySelector('button');
 
 //sets up the grid
 function makeGrid() {
-  
+
   while (pixelCanvas.firstElementChild){
     const rm = pixelCanvas.firstElementChild
     pixelCanvas.removeChild(rm);
@@ -36,4 +37,10 @@ function makeGrid() {
 
 }
 
+function coloring(event){
+  const color = document.querySelector('#colorPicker').value;
+  event.target.style.backgroundColor = color;
+}
+
 submit.addEventListener('click', makeGrid)
+pixelCanvas.addEventListener('click', coloring)
