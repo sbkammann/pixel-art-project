@@ -16,6 +16,11 @@ const submit = document.querySelector('button');
 
 //sets up the grid
 function makeGrid() {
+  
+  while (pixelCanvas.firstElementChild){
+    const rm = pixelCanvas.firstElementChild
+    pixelCanvas.removeChild(rm);
+  }
 
   let height = document.querySelector('#inputHeight').value;
   let width = document.querySelector('#inputWidth').value;
