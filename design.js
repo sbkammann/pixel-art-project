@@ -4,10 +4,21 @@
 // When size is submitted by the user, call makeGrid()
 
 const pixelCanvas = document.querySelector('#pixelCanvas');
-let height = document.querySelector('#inputHeight');
-let width = document.querySelector('#inputWidth');
+const submit = document.querySelector('button');
 
+// selects the submit button
+// const inputs = document.getElementsByTagName('input');
+//   for (let i = 0; i < inputs.length; i++){
+//     if(inputs[i].type.toLowerCase() == 'submit'){
+//     submitInput = inputs[i];
+//     }
+//   }
+
+//sets up the grid
 function makeGrid() {
+
+  let height = document.querySelector('#inputHeight').value;
+  let width = document.querySelector('#inputWidth').value;
 
   for (let h = 1; h <= height; h++){
     const row = document.createElement("tr");
@@ -19,3 +30,5 @@ function makeGrid() {
   }
 
 }
+
+submit.addEventListener('click', makeGrid)
