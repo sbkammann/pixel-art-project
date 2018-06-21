@@ -1,11 +1,12 @@
 
 const pixelCanvas = document.querySelector('#pixelCanvas');
-const submit = document.querySelector('button');
+const sizePicker = document.querySelector('#sizePicker');
 const color = document.querySelector('#colorPicker');
 
-//sets up the grid
-function makeGrid() {
 
+//sets up the grid
+function makeGrid(event) {
+ event.preventDefault();
 //removes previous canvas
   while (pixelCanvas.firstElementChild){
     const rm = pixelCanvas.firstElementChild
@@ -16,15 +17,16 @@ function makeGrid() {
   let width = document.querySelector('#inputWidth').value;
 
 //sets up new canvas
-  for (let h = 1; h <= height; h++){
-    const row = document.createElement("tr");
+ const table = document.getElementById('pixelCanvas');
+  for (let h = 0; h < height; h++){
+     const row = table.insertRow(h);
     pixelCanvas.appendChild(row);
-    for (let w = 1; w <= width; w++){
-      const column = document.createElement("td");
-      row.appendChild(column);
+    for (let w = 0; w < width; w++){
+      row.insertCell(w)
     }
   }
-
+  const tbody = document.querySelector('tbody');
+  tbody.remove();
 }
 
 //colors pixel
@@ -33,5 +35,5 @@ function coloring(event){
   event.target.style.backgroundColor = color;
 }
 
-submit.addEventListener('click', makeGrid)
-pixelCanvas.addEventListener('click', coloring)
+sizePicker.addEventListener('submit', makeGrid);
+pixelCanvas.addEventListener('click', coloring);
