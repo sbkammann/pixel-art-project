@@ -1,23 +1,12 @@
-// Select color input
-// Select size input
-
-// When size is submitted by the user, call makeGrid()
 
 const pixelCanvas = document.querySelector('#pixelCanvas');
 const submit = document.querySelector('button');
 const color = document.querySelector('#colorPicker');
 
-// selects the submit button
-// const inputs = document.getElementsByTagName('input');
-//   for (let i = 0; i < inputs.length; i++){
-//     if(inputs[i].type.toLowerCase() == 'submit'){
-//     submitInput = inputs[i];
-//     }
-//   }
-
 //sets up the grid
 function makeGrid() {
 
+//removes previous canvas
   while (pixelCanvas.firstElementChild){
     const rm = pixelCanvas.firstElementChild
     pixelCanvas.removeChild(rm);
@@ -26,6 +15,7 @@ function makeGrid() {
   let height = document.querySelector('#inputHeight').value;
   let width = document.querySelector('#inputWidth').value;
 
+//sets up new canvas
   for (let h = 1; h <= height; h++){
     const row = document.createElement("tr");
     pixelCanvas.appendChild(row);
@@ -37,6 +27,7 @@ function makeGrid() {
 
 }
 
+//colors pixel
 function coloring(event){
   const color = document.querySelector('#colorPicker').value;
   event.target.style.backgroundColor = color;
